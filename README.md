@@ -28,15 +28,13 @@ This is to say it is uncommon (often uneeded) to let the callee function take co
 Nevertheless, I think the example we raised earlier is very common, and well defined.
 
 *(I think you already see where I'm heading to!)*  
-<br>
 <hr>
-<br>
 
 ### Proposale
 
 In the context described above, I would like to see a new kind of `return` defined and added to JavaScript.  
 
-I think defining a `return` that goes through the stack to the top most calling code is unfeasible and/or too confusing. We should think of an agreement between the caller and the callee function so that the developer could decide clearly declare the particular situation described earlier between a caller and a callee function.
+I think defining a `return` that goes through the stack to the top most calling code is unfeasible and/or too confusing. We should think of an agreement between the caller and the callee function so that the developer could decide clearly then declare the particular situation described earlier between a caller and a callee function.
 
 *(We already had `async function_n` with `await function_n()` added to JavaScript without any problems but with new solutions !)*
 
