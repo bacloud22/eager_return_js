@@ -57,7 +57,7 @@ function `give` (`like 42`) caller() {
 }
 ```
 
-*(I can't think of now of a structure to defind `like`)*
+*(I can't think now of a structure to define `like`)*
 But I can think of something similar to:
 
 `like obj: [obj.key > 40]` for instance.
