@@ -57,6 +57,12 @@ function `give` (`like 42`) caller() {
 }
 ```
 
+### Second example
+
+![give-found](https://user-images.githubusercontent.com/10267332/168461783-ce9ee71a-2209-4a96-bf8d-8a69d28e519f.png)
+
+
+
 *(I can't think now of a structure to define `like`)*
 But I can think of something similar to:
 
