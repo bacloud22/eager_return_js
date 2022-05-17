@@ -69,8 +69,83 @@ But I can think of something similar to:
 `like obj: [obj.key > 40]` for instance.
 
 
-# Edit 01:
+### Edit 01:
 - Visibility this is similar to try,catch/throw in regard of the flow of execution. 
+
+### Edit 02:
+@theScottyJam comment on this:
+
+I think you're right about this idea being fairly similar to try/catch/throw. In fact, I don't think it would be too much effort to implement something like this in userland.
+
+Instead of this:
+
+```js
+function `give` caller(x, y) { ... }
+```
+
+write this:
+
+```js
+function caller(give, x, y) { ... }
+```
+
+And instead of this:
+
+```js
+`found` return42();
+```
+
+write this:
+
+```js
+give(return42());
+```
+
+Then use a utility receive() function to capture the eager-return value, and voila! With a small user-land library, you have this feature.
+
+**Full example:**
+```js
+// The utility library
+
+class LongReturn extends Error {
+  constructor(value) {
+    super('This got uncaught! That is not supposed to happen.');
+    this.value = value;
+  }
+}
+
+function give(value) {
+  throw new LongReturn(value);
+}
+
+export function receive(callback) {
+  try {
+    return callback(give);
+  } catch (err) {
+    if (err instanceof LongReturn) return err.value;
+    throw err;
+  }
+}
+
+// ...elsewhere...
+
+function fn1(give, randomBool) {
+  return fn2(give, randomBool)
+}
+
+function fn2(give, randomBool) {
+  if (randomBool) {
+    return 'slow path';
+  } else {
+    give('long path');
+  }
+}
+
+const randomBool = Math.random() > 0.5;
+const result = receive(give => fn1(give, randomBool));
+
+console.log(result);
+```
 
 
 
