@@ -72,8 +72,8 @@ But I can think of something similar to:
 ### Edit 01:
 - Visibility this is similar to try,catch/throw in regard of the flow of execution. 
 
-### Edit 02:
-@theScottyJam comment on this:
+### Edit 02: (use of try-catch, counter intuitive, as we are using throw error native flow of execution to return values. But it does the job)
+@theScottyJam comment on this: 
 
 I think you're right about this idea being fairly similar to try/catch/throw. In fact, I don't think it would be too much effort to implement something like this in userland.
 
