@@ -69,6 +69,10 @@ But I can think of something similar to:
 `like obj: [obj.key > 40]` for instance.
 
 
+# Edit 01:
+- Visibility this is similar to try,catch/throw in regard of the flow of execution. 
+
+
 
 
 
